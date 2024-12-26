@@ -1,0 +1,19 @@
+galaxy_info:
+  role_name: frontend
+  author: lalit
+  description: Role to set up the frontend of ChatApp
+  company: company
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+    - name: Ubuntu
+      versions:
+        - "20.04"
+        - "22.04"
+  categories:
+    - web
+    - frontend
+  dependencies: []
+
+dependencies: []
+

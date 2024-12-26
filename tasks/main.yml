@@ -1,0 +1,32 @@
+---
+- name: Copy the access_key.pem file
+  copy:
+    src: /home/lalit/chatapp_project/access_key.pem
+    dest: /home/ubuntu/access_key.pem
+    owner: ubuntu
+    group: ubuntu
+    mode: '0400'
+
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Unlink the default Nginx site
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Create the Nginx configuration file from template
+  template:
+    src: /home/lalit/chatapp_role/roles/frontend/templates/Nginx.j2
+    dest: /etc/nginx/sites-enabled/default
+    mode: '0644'
+  notify:
+    - restart nginx
+
+- name: Test Nginx configuration
+  command: nginx -t
+
+# tasks file for frontend
