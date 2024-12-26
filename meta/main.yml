@@ -1,19 +1,18 @@
 galaxy_info:
-  role_name: frontend
-  author: lalit
-  description: Role to set up the frontend of ChatApp
-  company: company
+  author: lalit sangore
+  description: frontend role for chatapp
+  company: Company
   license: MIT
   min_ansible_version: 2.9
   platforms:
     - name: Ubuntu
       versions:
-        - "20.04"
-        - "22.04"
-  categories:
+        - bionic
+        - focal
+    - name: EL
+      versions:
+        - "7"
+        - "8"
+  galaxy_tags:
     - web
-    - frontend
-  dependencies: []
-
-dependencies: []
-
+    - server
